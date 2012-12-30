@@ -1,2 +1,2 @@
-require 'jdbc/derby'
+require 'arjdbc/derby'
 Jdbc::Derby.load_driver(:require) if Jdbc::Derby.respond_to?(:load_driver)
