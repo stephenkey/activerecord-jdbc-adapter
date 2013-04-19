@@ -35,7 +35,7 @@ module ArJdbc
         # see http://jdbc.postgresql.org/documentation/91/connect.html
         # self.set_client_encoding(encoding)
       #end
-      self.client_min_messages = config[:min_messages] || 'warning'
+      #self.client_min_messages = config[:min_messages] || 'warning'
       self.schema_search_path = config[:schema_search_path] || config[:schema_order]
 
       # Use standard-conforming strings if available so we don't have to do the E'...' dance.
@@ -965,7 +965,7 @@ module ArJdbc
 
     # Set the client message level.
     def client_min_messages=(level)
-      execute("SET client_min_messages TO '#{level}'", 'SCHEMA')
+      # execute("SET client_min_messages TO '#{level}'", 'SCHEMA')
     end
 
     # Gets the maximum number columns postgres has, default 32
