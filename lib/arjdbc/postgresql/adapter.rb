@@ -45,9 +45,9 @@ module ArJdbc
       # TIMESTAMP WITH ZONE types in UTC.
       # (SET TIME ZONE does not use an equals sign like other SET variables)
       if ActiveRecord::Base.default_timezone == :utc
-        execute("SET time zone 'UTC'", 'SCHEMA')
+        # execute("SET time zone 'UTC'", 'SCHEMA')
       elsif defined?(@local_tz) && @local_tz
-        execute("SET time zone '#{@local_tz}'", 'SCHEMA')
+        # execute("SET time zone '#{@local_tz}'", 'SCHEMA')
       end # if defined? ActiveRecord::Base.default_timezone
 
       # SET statements from :variables config hash
