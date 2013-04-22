@@ -535,30 +535,30 @@ module ArJdbc
     
     # Enable standard-conforming strings if available.
     def standard_conforming_strings=(enable)
-      client_min_messages = self.client_min_messages
+      # client_min_messages = self.client_min_messages
       begin
-        self.client_min_messages = 'panic'
+        # self.client_min_messages = 'panic'
         value = enable ? "on" : "off"
         execute("SET standard_conforming_strings = #{value}", 'SCHEMA')
         @standard_conforming_strings = ( value == "on" )
       rescue
         @standard_conforming_strings = :unsupported
       ensure
-        self.client_min_messages = client_min_messages
+        # self.client_min_messages = client_min_messages
       end
     end
 
     def standard_conforming_strings? # :nodoc:
       if @standard_conforming_strings.nil?
-        client_min_messages = self.client_min_messages
+        # client_min_messages = self.client_min_messages
         begin
-          self.client_min_messages = 'panic'
+          # self.client_min_messages = 'panic'
           value = select_one('SHOW standard_conforming_strings', 'SCHEMA')['standard_conforming_strings']
           @standard_conforming_strings = ( value == "on" )
         rescue
           @standard_conforming_strings = :unsupported
         ensure
-          self.client_min_messages = client_min_messages
+          # self.client_min_messages = client_min_messages
         end
       end
       @standard_conforming_strings == true # return false if :unsupported
@@ -960,7 +960,7 @@ module ArJdbc
 
     # Returns the current client message level.
     def client_min_messages
-      select_value('SHOW client_min_messages', 'SCHEMA')
+      # select_value('SHOW client_min_messages', 'SCHEMA')
     end
 
     # Set the client message level.
